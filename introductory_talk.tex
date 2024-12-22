@@ -1,0 +1,593 @@
+The aim of this introductory talk is to provide three simple examples that fit within the general framework that will be covered during the study group. These examples have the advantage of being very explicit while introducing the main objects that appear within the general theory. The logical developments of all three examples are identical: we start with a complex simple Lie algebra $\fg$ and a fixed field $K$. From these objects, we construct a linear group $G_K$ over $K$ associated to the Lie algebra $\fg$. We then study the structure of these groups through their generators. 
+
+The first two examples are considered classical and hold for general fields $K$, while the last one crucially uses properties of fields endowed with non-archimedean valuations. First of all, we begin with a short introduction of Lie algebras and their representations.
+
+\subsection{Lie algebras}
+Recall that a Lie algebra over a field $K$ is a $K$-vector space together with a bilinear map (called the \textit{Lie bracket}) $$[\cdot,\cdot]:\fg\times\fg\longrightarrow \fg$$
+such that 
+\begin{enumerate}
+    \item Antisymmetry: $[x,x]=0$ for all $x\in\fg$.
+    \item Jacobi identity: $[x[yz]]+[y[zx]]+[z[xy]]=0$ for all $x,y,z\in\fg$.
+\end{enumerate}
+
+\begin{example} Here are some important examples of Lie algebras.
+    \begin{enumerate}
+        \item Let $V$ be a finite dimensional $K$-vector space. Then $\fg=\End(V)$, together with $[xy]=xy-yx$ is a Lie algebra. This Lie algebra is written as $\mathfrak{gl}(V)$ and denoted by \textit{general linear algebra}, and is clearly isomorphic to the Lie algebra $\mathfrak{gl}_n(K)$ of $n\times n$ matrices with coefficients in $K$ with the same bracket.
+        \item Lie subalgebras (i.e vector subspaces closed under the bracket of $\mathfrak{gl}(V)$) are called \textit{linear Lie algebras}. Of particular interest, we have
+        \begin{itemize}
+            \item The \textit{special linear algebra} $\mathfrak{sl}(V)=\{x\in\mathfrak{gl}(V):\mathrm{tr}(x)=0\}$ of traceless matrices.
+            \item Suppose that $V$ is a finite dimensional $\CC$-vector space and let $\langle\cdot,\cdot\rangle$ be a bilinear form in $V$. Then the subspace $$\{x\in\mathfrak{gl}(V):\langle xv,w\rangle=-\langle v,xw\rangle \text{ for all } v,w\in V\}$$ is a linear Lie algebra. If $\langle\cdot,\cdot\rangle$ is symmetric and non-degenerate we obtain the special orthogonal linear algebra $\mathfrak{so}(V)$, while if $\langle\cdot,\cdot\rangle$ is antisymmetric and non-degenerate we obtain the simplectic linear algebra $\mathfrak{sp}(V)$.
+        \end{itemize}
+    \end{enumerate}
+
+\end{example}
+
+Naturally, we say that a map $\psi:\fg\rightarrow\fh$ between Lie algebras over $K$ is a homomorphism of Lie algebras if $\psi$ is a $K$-linear map preserving the Lie bracket; that is, $[\psi(x)\psi(y)]=\psi([xy])$ for all $x,y\in\fg$. We say that $\psi$ is an isomorphism if it is an isomorphism of $K$-vector spaces. Importantly, this leads to the notion of a \textit{representation of a Lie algebra over $K$}. This is a Lie algebra homomorphism $\psi:\fg\to\mathfrak{gl}(V)$ for some $K$-vector space $V$. 
+
+We often write $x\cdot v$ for $x\in\fg$ and $v\in V$ instead of $\psi(x)(v)$, and we note that $$[xy]\cdot v=x\cdot(y\cdot v)-y\cdot(x\cdot v).$$
+
+\begin{example}
+    \begin{enumerate}
+        \item The \textit{trivial representation} is the homomorphism $\fg\to\mathfrak{gl}_1(K)$ given by $x\cdot v=0$ for all $x\in\fg$ and $v\in V$.
+        \item If $\fg$ is a Lie subalgebra of $\mathfrak{gl}(V)$, then the \textit{defining representation} is the natural inclusion $\fg\hookrightarrow\mathfrak{gl}(V)$.
+        \item The \textit{adjoint representation} is the homomorphism $\ad:\fg\to\mathfrak{gl}(\fg)$ given by $\ad(x)(y)=[xy]$ for all $x,y\in\fg$. The fact that this is a representation is comes from the Jacobi identity.
+    \end{enumerate}
+\end{example}
+
+With these ingredients, we are now ready to give an explicit construction of the linear Lie groups $G_K$ associated to the Lie algebras $\mathfrak{sl}_2(\CC)$ and $\mathfrak{sl}_3(\CC)$.
+
+\subsection{Adjoint Chevalley groups associated to \texorpdfstring{$\mathfrak{sl}_2(\CC)$}{PDFstring}}
+The complex Lie algebra $\mathfrak{sl}_2(\CC)$ is a three-dimensional Lie algebra with basis given by
+$$e=\begin{pmatrix}
+    0 & 1\\
+    0 & 0\\
+\end{pmatrix},\quad h=\begin{pmatrix}
+    1 & 0\\
+    0 & -1\\
+\end{pmatrix},\quad f=\begin{pmatrix}
+    0 & 0\\
+    1 & 0\\
+\end{pmatrix},$$
+and Lie bracket $[he]=2e$, $[hf]=-2f$ and $[ef]=h$. Thus, by choosing $\{e,h,f\}$ as basis of $\slii(\CC)$, the adjoint representation $\mathrm{ad}:\slii(\CC)\to\mathrm{gl}(\slii(\CC))$ is given by 
+
+$$e=\begin{pmatrix}
+    0 & -2 & 0\\
+    0 & 0 & 1\\
+    0 & 0 & 0\\
+\end{pmatrix},\quad h=\begin{pmatrix}
+    2 & 0 & 0\\
+    0 & 0 & 0\\
+    0 & 0 & -2\\
+\end{pmatrix},\quad f=\begin{pmatrix}
+    0 & 0 & 0\\
+    -1 & 0 & 0\\
+    0 & 2 & 0\\
+\end{pmatrix}.$$
+
+Importantly, the matrix $h$ acts on $\slii(\CC)$ by a semisimple endomorphism and decomposes into the eigenspaces 
+$$\fg_\CC=\slii(\CC)=\langle h\rangle\oplus\langle e\rangle\oplus\langle f\rangle.$$
+This decomposition is called the \textit{root space decomposition} of $\slii$, and can be generalized to higher dimensional semisimple Lie algebras. The subspace spanned by $h$ is a maximal abelian semisimple subalgebra of $\slii(\CC)$, called a \textit{Cartan subalgebra} and denoted by $\mathfrak{t}=\langle h \rangle$.
+In order to visualize this decomposition, we note that $$\langle e\rangle=\{x\in\slii(\CC):[hx]=2x\}=\{x\in\slii(\CC):[yx]=\alpha(y)x\text{ for all }y\in\langle h\rangle\}$$ while $$\langle f\rangle=\{x\in\slii(\CC):[hx]=-2x\}=\{x\in\slii(\CC):[yx]=-\alpha(y)x\text{ for all }y\in\langle h\rangle\},$$
+
+\iffalse This motivates the following rather technical definition, central to Lie theory.
+\begin{definition}
+    Let $\fg$ be a complex Lie algebra and let $\mathfrak{t}$ be a Cartan subalgebra 
+\end{definition}\fi
+
+
+where $\alpha:\mathfrak{t}\to\CC$ is a linear form satisfying $\alpha(h)=2$. The set $\Phi=\{\alpha,-\alpha\}\subset\mathfrak{t}^*$ is called the \textit{root system} of $\slii(\CC)$. Moreover, we say that $Q=\ZZ\alpha$ is the \textit{root lattice} while $P=\{\lambda\in\mathfrak{t}^*:\lambda(h)\in\ZZ\}=\ZZ\frac{\alpha}{2}$ is called the \textit{weight lattice}.
+
+Since $[he]=2e$, $[hf]=2f$ and $[ef]=h$, the $\ZZ$-module $\fg_\ZZ=h\ZZ\oplus e\ZZ\oplus f\ZZ$ is a Lie algebra over $\ZZ$. Hence, by fixing a field $K$, one obtains $\fg_K:=K\otimes_\ZZ\fg_\ZZ$, naturally a Lie algebra over $K$ with Lie bracket
+$$[\mu_1\otimes x_1,\mu_2\otimes x_2]:=\mu_1\mu_2\otimes[x_1,x_2],$$
+making it isomorphic to $\slii(K)$. We are now ready to give the main definition of this subsection.
+
+\begin{definition}
+    The adjoint Chevalley group of type $A_1$ over $K$ is defined as the subgroup of $G_K$ of $\GL(\slii(K))$ generated by $\{x_\alpha(t),x_{-\alpha}(t):t\in K\}$ and $\{h(\chi):\chi\in\Hom(\alpha\ZZ,K^*)\}$ where
+    $$x_\alpha(t)=\exp(\mathrm{ad}(te))=\begin{pmatrix}
+        1 & -2t & -t^2\\
+        0 & 1 & t\\
+        0 & 0 & 1\\
+    \end{pmatrix},\quad x_{-\alpha}(t)=\exp(\mathrm{ad}(tf))=\begin{pmatrix}
+        1 & 0 & 0\\
+        -t & 1 & 0\\
+        -t^2 & 2t & 1\\
+    \end{pmatrix},\quad h(\chi)=\begin{pmatrix}
+        \chi(\alpha) & 0 & 0\\
+        0 & 1 & 0\\
+        0 & 0 & \chi(-\alpha)\\
+    \end{pmatrix}.$$
+    Here, the matrices are with respect to the basis $\{1\otimes e,1\otimes h,1\otimes f\}$.
+\end{definition}
+
+One can check by direct computation that all generators above preserve the Lie bracket and have determinant $1$. Thus, in fact, $G_K$ is a subgroup of $\Aut(\slii(K))\cap\SL_3(K)$. The abstract definition of $G_K$ gives little insight of its group structure, which we investigate now.  
+
+To begin with, we consider the \textit{root subgroups}
+$$X_\alpha=\{x_\alpha(t):t\in K\}\quad\text{and}\quad X_{-\alpha}=\{x_{-\alpha}(t):t\in K\},$$
+both isomorphic to $K$ via the isomorphism $t\mapsto x_\alpha(t)$
+together with the diagonal subgroup 
+$$H=\{h(\chi):\chi\in\Hom(Q,K^*)\},$$
+isomorphic to $K^*$ via the isomorphism $s\mapsto h(\chi_s)$ where $\chi_s(\alpha)=s$.
+In fact, $H$ are all Lie group automorphisms of $\fg_K$ fixing $\mathfrak{t}_K$ element-wise and preserving the eigenspaces. A simple calculation shows that $H$ normalizes $X_\alpha$ and $X_{-\alpha}$ and, using that $H$ is abelian, it also follows that $G'_K:=\langle X_\alpha,X_{-\alpha}\rangle$ is the commutator subgroup of $G_K$. The following theorem is crucial to understand the structure of $G_K$.
+
+\begin{proposition}\label{prop:homSL2version1}
+    There exists a homomorphism of groups 
+    $\Psi':\SL_2(K)\rightarrow\langle X_\alpha,X_{-\alpha}\rangle=G'_K$
+    such that 
+    $$\Psi'\left(\begin{pmatrix}
+        1 & t\\
+        0 & 1\\
+    \end{pmatrix}\right)=x_\alpha(t)\quad\text{and}\quad\Psi'\left(\begin{pmatrix}
+        1 & 0\\
+        t & 1\\
+    \end{pmatrix}\right)=x_{-\alpha}(t)\quad\text{for all $t\in K$}.$$
+\end{proposition}
+\begin{proof}
+    The map $\Psi'$ can be realized by an explicit representation of $\SL_2(K)$. Consider the action of $\SL_2(K)$ on the space of polynomials $K[x,y]$ given by 
+    $$\begin{pmatrix}
+        a & b\\
+        c & d\\
+    \end{pmatrix}\cdot f(x,y)=f(ax+cy,bx+dy),$$
+    and restrict this action to the three dimensional subspace $K[x,y]_2$ of degree $2$ polynomials. By choosing the basis $\{-x^2,2xy,y^2\}$, one can easily check that the action is given by the homomorphism
+    $$\begin{pmatrix}
+        a& b\\
+        c&d\\
+    \end{pmatrix}\longmapsto\begin{pmatrix}
+        a^2 & -2ab & -b^2\\
+        -ac & ad+bc & bd\\
+        -c^2 & 2cd & d^2\\
+    \end{pmatrix},$$
+    and this is precisely the desired homomorphism $\Psi'$.
+\end{proof}
+
+Moreover, one can easily check that $\ker\Psi'=\pm\{I\}$, so
+$$G'_K=\langle X_\alpha,X_{-\alpha}\rangle\cong\SL_2(K)/\{\pm I\}=\PSL_2(K),$$
+and the bijection is explicitly given by $\Psi'$. In addition, this gives an explicit description of the diagonal subgroup $H':=H\cap G'$ of $G'$ since $\Psi'\left(\begin{psmallmatrix}
+    a&b\\
+    c&d\\
+\end{psmallmatrix}\right)$ is diagonal if and only if $b=c=0$, in which case $a=d^{-1}$ and
+$$h_\alpha(\lambda):=\Psi'\left(\begin{pmatrix}
+    \lambda & 0\\
+    0 & \lambda^{-1}\\
+\end{pmatrix}\right)=\begin{pmatrix}
+    \lambda^2 & 0 & 0\\
+    0 & 1 & 0\\
+    0 & 0 & \lambda^{-2}\\
+\end{pmatrix}.$$
+
+Hence, $H'=H\cap G'$ contains the elements $h(\chi)$ such that $\chi\in\Hom(\alpha\ZZ,(K^*)^2)$. Equivalently, $h(\chi)\in H'$ if and only if there is some $\bar\chi\in\Hom(\frac{\alpha}{2}\ZZ,K^*)\text{ such that }\bar\chi(\alpha)=\chi(\alpha)$. This happens to be a general phenomenon.
+
+Finally, this result allows us to give a global description for $G_K$.
+
+\begin{theorem}\label{thm:globalsl2}
+    There exists a unique homomorphism of groups $\Psi:\GL_2(K)\to\langle X_\alpha,X_{-\alpha},H\rangle=G_K$
+    extending $\Psi'$ such that 
+    $$\Psi\left(\begin{pmatrix}
+        s & 0\\
+        0 & 1\\
+    \end{pmatrix}\right)=\begin{pmatrix}
+        s & 0 & 0\\
+        0 & 1 & 0\\
+        0 & 0 & s^{-1}\\
+    \end{pmatrix}\in H$$
+    for all $s\in K^*$. Moreover, $\Psi$ is surjective and $\ker\Psi=\{\lambda I:\lambda\in K^*\}$. In particular, $G_K\cong\PSL_2(K)$.
+\end{theorem}
+\begin{proof}
+    The desired homomorphism $\Psi$ is given by
+    $$\begin{pmatrix}
+        a & b\\
+        c & d\\
+    \end{pmatrix}\in\GL_2(K)\longmapsto\frac{1}{ad-bc}\begin{pmatrix}
+        a^2 & -2ab & -b^2\\
+        -ac & ad+bc & bd\\
+        -c^2 & 2cd & d^2\\
+    \end{pmatrix}.$$ 
+    This map is clearly surjective, extends $\Psi'$ and maps $\begin{psmallmatrix}
+        s & 0\\
+        0 & 1\\
+    \end{psmallmatrix}$
+    to $\mathrm{Diag}(s,1,s^{-1})$. Finally, a tedious calculation shows it is a homomorphism. From the description above, it is easy to check that $\ker\Psi=\{\lambda I:\lambda\in K^*\}$, so $G\cong\GL_2(K)/\{\lambda I,\lambda\in K^*\}=\PGL_2(K),$
+    where the isomorphism is explicitly given by $\Psi$.
+\end{proof}
+
+Under this isomorphism, one can identify important subgroups of $G$ with subgroups of $\PGL_2(K)$. Indeed,
+
+$$X_\alpha \longleftrightarrow\begin{pmatrix}
+    1 & *\\
+    0 & 1\\
+\end{pmatrix},\quad X_{-\alpha} \longleftrightarrow\begin{pmatrix}
+    1 & 0\\
+    * & 1\\
+\end{pmatrix},\quad H\longleftrightarrow\begin{pmatrix}
+    * & 0\\
+    0 & *\\
+\end{pmatrix}.$$
+Moreover, one also defines the \textit{monoidal} subgroup $N=\langle H,n_\alpha\rangle$, where $n_\alpha=\Psi_\alpha\begin{psmallmatrix}
+    0 & 1\\
+    -1 & 0\\
+\end{psmallmatrix}$ and the \textit{Borel} subgroup $B=X_\alpha H$. Under $\Psi$, these correspond to
+$$N\longleftrightarrow\begin{pmatrix}
+    * & 0\\
+    0 & *\\
+\end{pmatrix}\sqcup\begin{pmatrix}
+    0 & *\\
+    * & 0\\
+\end{pmatrix},\quad B\longleftrightarrow\begin{pmatrix}
+    * & *\\
+    0 & *\\
+\end{pmatrix}.$$
+
+Of course, by intersecting these subgroups with $G_K'$, we get the same identifications inside $\PSL_2(K)\subseteq\PGL_2(K)$. Therefore, the following results also hold if we intersect the subgroups with $G'_K$.
+
+We also note that $N$ is the normalizer of $H$ inside $G$. Therefore $H\triangleleft N$ and $N/H\cong C_2$, generated by $n_\alpha H$. Finally, a simple calculation shows the following.
+
+\begin{theorem}[Bruhat Decomposition for $\slii$] \label{thm:bruhatsl2}
+    Let $G,B,N$ be as above. Then 
+    $$G=BNB=B\sqcup Bn_\alpha B.$$
+    The same is true if we replace $G,B,N$ for $G',B',N'$.
+\end{theorem}
+\begin{proof}
+    By using the identification given by $\Psi$, a simple calculation shows that 
+    $$\begin{pmatrix}
+        a_1 & b_1\\
+        0 & d_1\\
+    \end{pmatrix}\begin{pmatrix}
+        0 & 1\\
+        -1 & 0\\
+    \end{pmatrix}\begin{pmatrix}
+        a_2 & b_2\\
+        0 & d_2\\
+    \end{pmatrix}=\begin{pmatrix}
+        -b_1a_2 & -b_1b_2+a_1d_2\\
+        -d_1a_2 & -d_1b_2\\
+    \end{pmatrix}.$$
+    Note that $d_1a_2\neq 0$ and, in fact, $Bn_\alpha B=G\setminus B$, as desired.
+\end{proof}
+
+
+\subsection{Adjoint Chevalley groups associated to \texorpdfstring{$\mathfrak{sl}_3(\CC)$}{PDFstring}}
+We now investigate how the above construction may be generalized to $\sliii(\CC)$, an $8$-dimensional Lie algebra with basis given by
+$$\mathcal{B}=\{E_{11}-E_{22},E_{22}-E_{33},E_{12},E_{23},E_{13},E_{21},E_{32},E_{31}\}.$$
+The diagonal matrices $\mathfrak{t}$ inside $\sliii(\CC)$ are a Cartan subalgebra and are spanned by $h_1:=E_{11}-E_{22}$ and $h_2:=E_{22}-E_{33}$. In some sense that will be made precise in later talks, $h_1$ and $h_2$ are a natural basis for $\mathfrak{t}$. Importantly, their action on $\sliii(\CC)$ under the adjoint representation is simultaneously diagonalizable. The root space decomposition is 
+$$\sliii(\CC)=\mathfrak{t}\oplus\langle E_{12}\rangle\oplus\langle E_{23}\rangle\oplus\langle E_{13}\rangle\oplus\langle E_{21}\rangle\oplus\langle E_{32}\rangle\oplus\langle E_{31}\rangle,$$
+where
+$$\langle E_{12}\rangle=\fg_{\alpha_1},\ \langle E_{23}\rangle=\fg_{\alpha_2},\ \langle E_{31}\rangle=\fg_{\alpha_1+\alpha_2},\ \langle E_{21}\rangle=\fg_{-\alpha_1},\ \langle E_{32}\rangle=\fg_{-\alpha_2},\ \langle E_{31}\rangle=\fg_{-\alpha_1-\alpha_2}$$
+and the linear functionals satisfy 
+$\alpha_1(h_{\alpha_1})=\alpha_2(h_{\alpha_2})=2$ and $\alpha_1(h_{\alpha_2})=\alpha_2(h_{\alpha_1})=-1$. Therefore, the root system of $\sliii(\CC)$ is $\Phi=\{\pm\alpha_1,\pm\alpha_2,\pm(\alpha_1+\alpha_2)\}$ of type $A_2$ and has root lattice $Q=\alpha_1\ZZ\oplus\alpha_2\ZZ$ and weight lattice $$P=\{\lambda\in\mathfrak{t}^*:\lambda(h_1),\lambda(h_2)\in\ZZ\}=\omega_1\ZZ\oplus\omega_2\ZZ$$ where $w_1=(2\alpha_1+\alpha_2)/3$ and $w_2=(\alpha_1+2\alpha_2)/3$. To ease notation, one normally writes $e_\alpha$ for $E_{ij}$ if $\fg_\alpha=\langle E_{ij}\rangle$.
+
+Again, one can easily check that the free $\ZZ$-module
+$$\fg_\ZZ=h_1\ZZ\oplus h_2\ZZ\oplus\bigoplus_{1\leq i\neq j\leq 3}E_{ij}\ZZ$$
+is closed under the bracket and therefore is a Lie algebra over $\ZZ$.
+For any fixed field $K$, the vector space $\fg_K:=K\otimes_\ZZ\fg_\ZZ$ is a Lie algebra over $K$ isomorphic to $\sliii(K)$.
+Similarly to the previous example, we define the \textit{adjoin Chevalley group of type $A_2$ over $K$} to be the subgroup $G_K$ of $\Aut(\sliii(\CC))\cap\SL_8(K)$ generated by
+$$\{x_\alpha(t):\alpha\in\Phi,t\in K\}\quad\text{and}\quad\{h(\chi):\chi\in\Hom(Q,K^*)\},$$ where $x_\alpha(t)=\exp(\ad(te_\alpha))$ and $h(\chi)$ satisfies $h(\chi)(t)=t$ for all $t\in\mathfrak{t}$ and $h(\chi)(e_\alpha)=\chi(\alpha)e_\alpha$ for all $\alpha\in\Phi$. 
+
+We now study the structure of $G_K$ in an analogous way to the previous section. We define the \textit{root subgroups} $$X_\alpha=\{x_\alpha(t):t\in K\}\cong K$$ for each $\alpha\in\Phi$ and the \textit{diagonal subgroup} (or \textit{torus}) $$H=\{h(\chi):\chi\in\Hom(Q,K^*)\}.$$ Moreover, we define the \textit{unipotent subgroups} 
+$$U=\langle X_{\alpha_1},X_{\alpha_2},X_{\alpha_1+\alpha_2}\rangle\quad\text{and}\quad V=\langle X_{-\alpha_1},X_{-\alpha_2},X_{-\alpha_1-\alpha_2}\rangle,$$
+which are normalized by $H$ since each $X_\alpha, \alpha\in\Phi$ is. Hence, $B=UH=HU$ is called the \textit{Borel subgroup} and since $H$ is abelian, it follows that $\langle X_\alpha:\alpha\in\Phi\rangle=G'_K\triangleleft G_K$ is the commutator subgroup of $G_K$.
+
+The following Proposition, analogous to Proposition \ref{prop:homSL2version1} gives a `local' description of $G$.
+
+\begin{proposition}
+    For each $\alpha\in\Phi$, there exists an isomorphism of groups 
+    $\Psi_\alpha:\SL_2(K)\rightarrow\langle X_\alpha,X_{-\alpha}\rangle\leq G'$
+    such that 
+    $$\Psi_\alpha\left(\begin{pmatrix}
+        1 & t\\
+        0 & 1\\
+    \end{pmatrix}\right)=x_\alpha(t)\quad\text{and}\quad\Psi_\alpha\left(\begin{pmatrix}
+        1 & 0\\
+        t & 1\\
+    \end{pmatrix}\right)=x_{-\alpha}(t)\quad\text{for all}\quad t\in K.$$
+\end{proposition}
+
+This result is very useful in practice, but to give a global description, we need the following result that also holds more generally for all semisimple Lie algebras with small modifications.
+
+\begin{lemma}
+    Let $\alpha\in\Phi$ and $t\in K$. Then, for all $y\in\sliii(\CC)$, we have that 
+    $$x_\alpha(t)(y)=\exp(\ad(t e_\alpha))(y)=\exp(te_\alpha)\circ y\circ \exp(te_\alpha)^{-1}.$$
+\end{lemma}
+
+We note that for all $t\in K$,
+
+\begin{equation}\label{eq:exp}
+\exp(te_{\alpha_1})=\begin{pmatrix}
+    1 & t & 0\\
+    0 & 1 & 0\\
+    0 & 0 & 1\\
+\end{pmatrix},\quad\exp(te_{\alpha_2})=\begin{pmatrix}
+    1 & 0 & 0\\
+    0 & 1 & t\\
+    0 & 0 & 1\\
+\end{pmatrix},\quad\exp(te_{\alpha_1})=\begin{pmatrix}
+    1 & 0 & t\\
+    0 & 1 & 0\\
+    0 & 0 & 1\\
+\end{pmatrix},\quad\exp(te_{-\alpha})=\exp(te_\alpha)^T,
+\end{equation}
+and these matrices generate $\SL_3(K)$. This gives a surjective group homomorphism 
+$$\Psi':\SL_3(K)\longrightarrow G'$$
+such that $\Psi'(A)(y)=AyA^{-1}$ for all $A\in\SL_3(K)$ and $y\in\sliii(K)$. Moreover, $\ker\Psi'=\{\lambda I:\lambda^3=1\}$ and therefore $G'_K\cong\PSL_3(K)$. Under this isomorphism, we can identify subgroups of $G'_K$ with subgroups of $\PSL_3(K)$. Indeed,
+\begin{equation*}
+    X_{\alpha_1}\longleftrightarrow\begin{pmatrix}
+        1 & * & 0\\
+        0 & 1 & 0\\
+        0 & 0 & 1\\
+    \end{pmatrix},\quad X_{\alpha_2}\longleftrightarrow\begin{pmatrix}
+        1 & 0 & 0\\
+        0 & 1 & *\\
+        0 & 0 & 1\\
+    \end{pmatrix},\quad X_{\alpha_1+\alpha_2}\longleftrightarrow\begin{pmatrix}
+        1 & 0 & *\\
+        0 & 1 & 0\\
+        0 & 0 & 1\\
+    \end{pmatrix},\quad U\longleftrightarrow\begin{pmatrix}
+        1 & * & *\\
+        0 & 1 & *\\
+        0 & 0 & 1\\
+    \end{pmatrix}
+\end{equation*}
+and analogously for negative roots. It is also possible to extend the domain of $\Psi'$ to obtain a global description of $G_K$. The proof of the following result will be postponed to a later talk.
+
+\begin{theorem}
+    There exists a unique surjective group homomorphism $$\Psi:\GL_3(K)\longrightarrow G_K$$ such that it agrees with $\Psi'$ on $\SL_3(K)$ and 
+    $$\Psi\left(\begin{pmatrix}
+        s & 0 & 0\\
+        0 & 1 & 0\\
+        0 & 0 & 1\\
+    \end{pmatrix}\right)=h(\chi_s),\quad\text{where }\chi_s(\alpha_1)=s\text{ and }\chi_s(\alpha_2)=1.$$
+    Moreover, $\ker\Psi=\{\lambda I:\lambda\in K^*\}$ and, in particular, $G_K\cong\PGL_3(K)$.
+    %In particular $h(\chi_s)\in H$ if and only if $s$ is a cube in $K^*$.
+\end{theorem}
+
+One can easily deduce from the defining properties of $\Psi$ that for $A\in\GL_3(K)$, $\Psi(A)$ preserves all root spaces if and only if $A$ is diagonal. Hence,
+\begin{equation*}
+    H \longleftrightarrow\begin{pmatrix}
+        * & 0 & 0\\
+        0 & * & 0\\
+        0 & 0 & *\\
+    \end{pmatrix},\quad B=UH\longleftrightarrow\begin{pmatrix}
+        * & * & *\\
+        0 & * & *\\
+        0 & 0 & *\\
+    \end{pmatrix}
+\end{equation*}
+
+
+\iffalse\begin{theorem}
+    There exists a surjective group homomorphism $\Psi':\SL_3(K)\to G'$ such that 
+    $$$$
+    for all $A\in\SL_3(K)$ and $y\in\sliii(K)$. Moreover, $\ker\Psi'$ is the scalar multiples of the identity in $\SL_3(K)$.
+\end{theorem}
+\begin{proof}
+    From \eqref{eq:exp}, we know that $\Psi'(I+te_\alpha)=x_\alpha(t)$ for all $\alpha\in\Phi$ and $t\in K$. Since these matrices generate $\SL_3(K)$ and the maps $x_\alpha(t)$ generate $G'$, the map is a well-defined surjective group homomorphism. Finally, it is clear that $\ker\Psi'=\{A\in\SL_3(K):Ay=yA\text{ for all }y\in\sliii(K)\}=Z(\SL_3(K))$, which are the scalar multiples of the identity.
+\end{proof}\fi
+
+These observations motivate one last important question. Can we explicitly describe the diagonal subgroup of $H'=H\cap G'_K$ inside $G'_K$? This can be answered by noting that, with respect to the basis $\mathcal{B}$,
+$$\Psi(\mathrm{Diag}(s,u,v))=h(\chi) \quad\text{where}\quad \chi(\alpha_1)=su^{-1}\text{ and }\chi(\alpha_2)=uv^{-1}.$$
+We note that $\Psi(\mathrm{Diag}(s,u,v))\in G'_K$ if and only if $suv\in (K^*)^3$. By multiplying by an appropriate constant, we may assume that $suv=1$. Thus, 
+$$\Psi(\mathrm{Diag}(s,(sv)^{-1},v))=h(\chi) \quad\text{where}\quad \chi(\alpha_1)=s^2v\text{ and }\chi(\alpha_2)=s^{-1}v^{-2}.$$
+Importantly, such a character can be extended to a character $\bar{\chi}$ of the weight lattice by setting $\bar\chi(\omega_1)=s$ and $\bar\chi(\omega_2)=v^{-1}$. By the construction above, this is also a sufficient condition, so have proved the following.
+
+\begin{lemma}
+    Let $\chi\in\Hom(Q,K^*)$ be a character of the root lattice. Then $h(\chi)\in H'=H\cap G'$ if and only if $\chi$ can be extended to a character of the weight lattice $P$.
+\end{lemma}
+\iffalse
+Similarly, it is also possible to give an explicit global description of $G$ by extending $\Psi'$. 
+
+\begin{theorem}
+    There exists a unique surjective group homomorphism $\Psi:\GL_3(K)\to G$ extending $\Psi'$ such that 
+    $$\Psi\left(\begin{pmatrix}
+        s & 0 & 0\\
+        0 & 1 & 0\\
+        0 & 0 & 1\\
+    \end{pmatrix}\right)=h(\chi_s),\quad\text{where }\chi_s(\alpha_1)=s\text{ and }\chi_s(\alpha_2)=1.$$
+    In particular $h(\chi_s)\in H$ if and only if $s$ is a cube in $K^*$.
+\end{theorem}
+
+\begin{proof}
+    To simplify notation, let $D_s\in\GL_3(K)$ be the diagonal matrix with $s$ at the $(1,1)$-entry and $1$ in the other two entries. Any matrix $A\in\GL_3(K)$ with $d=\det(A)$ can be expressed uniquely as $A=D_dA'$ where $A'\in\SL_3(K)$, so we might define 
+    $$\Psi(A)=h(\chi)\Psi'(A').$$
+    Of course, we now need to show that $\Psi$ is a group homomorphism. By Lemma \ref{lem:conjxalpla}, we know that 
+    $$h(\chi_s)x_{\alpha_1}(t)=x_{\alpha_1}(st)h(\chi_s)\quad\text{and}\quad h(\chi_s)x_{\alpha_2}(t)=x_{\alpha_2}(t)h(\chi_s),$$
+    which agrees with the identities
+    $$\begin{pmatrix}
+        s & 0 & 0\\
+        0 & 1 & 0\\
+        0 & 0 & 1\\
+    \end{pmatrix}\begin{pmatrix}
+        1 & t & 0\\
+        0 & 1 & 0\\
+        0 & 0 & 1\\
+    \end{pmatrix}=\begin{pmatrix}
+        1 & st & 0\\
+        0 & 1 & 0\\
+        0 & 0 & 1\\
+    \end{pmatrix}\begin{pmatrix}
+        s & 0 & 0\\
+        0 & 1 & 0\\
+        0 & 0 & 1\\
+    \end{pmatrix}\text{ and }\begin{pmatrix}
+        s & 0 & 0\\
+        0 & 1 & 0\\
+        0 & 0 & 1\\
+    \end{pmatrix}\begin{pmatrix}
+        1 & 0 & 0\\
+        0 & 1 & t\\
+        0 & 0 & 1\\
+    \end{pmatrix}=\begin{pmatrix}
+        1 & 0 & 0\\
+        0 & 1 & t\\
+        0 & 0 & 1\\
+    \end{pmatrix}\begin{pmatrix}
+        s & 0 & 0\\
+        0 & 1 & 0\\
+        0 & 0 & 1\\
+    \end{pmatrix}.$$
+    The same compatibility is true for any $\alpha\in\Phi$, $t\in K$ and $s\in K^*$. Since $\SL_3(K)$ is generated by $\{x_\alpha(t):\alpha\in\Phi, t\in K\}$, we have that for any $s,u\in K^*$ and $A,B\in\SL_3(K)$,
+    \begin{align*}
+        \Psi(D_sAD_uB)=\Psi(D_sD_uD_u^{-1}AD_uB)=h(\chi_{s})h(\chi_u)\Psi'(D_u^{-1}AD_u)\Psi'(B)=\\
+        h(\chi_s)\Psi'(D_u(D_u^{-1}AD_u)D_u^{-1})h(\chi_u)\Psi'(B)=h(\chi_s)\Psi'(A)h(\chi_u)\Psi'(B)=\Psi(D_sA)\Psi(D_uB).
+    \end{align*}
+    This concludes the proof.
+\end{proof}
+
+Since $G$ is generated by $G'$ and $H$, it is still the case that for $A\in\GL_3$, $\Psi(A)$ is diagonal if and only if $A$ is diagonal. In particular, by tracing through the construction of $\Psi$, one can easily show that 
+$$\Psi(\mathrm{Diag}(s,u,v))=h(\chi),\quad\text{where }\chi(\alpha_1)=su^{-1}\text{ and }\chi(\alpha_2)=uv^{-1}.$$
+Therefore, $\ker\Psi=\{\lambda I:\lambda\in K^*\}$ are the scalar multiples of the identity, so $G\cong\PGL_3(K)$. Moreover, the identification given by $\Psi$ of the subgroups of $G$ with subgroups of $\PGL_2(K)$ is analogous to the identification given by $\Psi'$.
+\fi
+
+We are finally ready to give the Bruhat decomposition of $G$ (and $G'$). For each $\alpha\in\Phi$, let $n_\alpha=\Psi_\alpha\left(\begin{psmallmatrix}
+    0 & 1\\
+    -1 & 0\\
+\end{psmallmatrix}\right)$, and define the monoidal subgroups
+$$N=\langle H,n_\alpha:\alpha\in\Phi\rangle,\quad N'=N\cap G'=\langle H',n_\alpha:\alpha\in\Phi\rangle.$$
+Under the isomorphism given by $\Psi$, we have that 
+\begin{equation*}
+    n_{\alpha_1}\longleftrightarrow\begin{pmatrix}
+        0 & 1 & 0\\
+        -1 & 0 & 0\\
+        0 & 0 & 1\\
+    \end{pmatrix},\quad n_{\alpha_2}\longleftrightarrow\begin{pmatrix}
+        1 & 0 & 0\\
+        0 & 0 & 1\\
+        0 & -1 & 0\\
+    \end{pmatrix},\quad n_{\alpha_1+\alpha_2}\longleftrightarrow\begin{pmatrix}
+        0 & 0 & 1\\
+        0 & 1 & 0\\
+        -1 & 0 & 0\\
+    \end{pmatrix}
+\end{equation*}
+and therefore 
+\begin{equation*}
+    N\longleftrightarrow\begin{pmatrix}
+        * & 0 & 0\\
+        0 & * & 0\\
+        0 & 0 & *\\
+    \end{pmatrix}\sqcup\begin{pmatrix}
+        0 & * & 0\\
+        * & 0 & 0\\
+        0 & 0 & *\\
+    \end{pmatrix}\sqcup\begin{pmatrix}
+        * & 0 & 0\\
+        0 & 0 & *\\
+        0 & * & 0\\
+    \end{pmatrix}\sqcup\begin{pmatrix}
+        0 & 0 & *\\
+        * & 0 & 0\\
+        0 & * & 0\\
+    \end{pmatrix}\sqcup\begin{pmatrix}
+        0 & * & 0\\
+        0 & 0 & *\\
+        * & 0 & 0\\
+    \end{pmatrix}\sqcup\begin{pmatrix}
+        0 & 0 & *\\
+        0 & * & 0\\
+        * & 0 & 0\\
+    \end{pmatrix}
+\end{equation*}
+From this perspective, it is clear that $N$ is in fact the normalizer of $H=B\cap N$ inside $G_K$, and that the quotient $N/H$ is isomorphic to $S_3$, generated by the elements $n_{\alpha_1}H$ and $n_{\alpha_2}H$. Now the proof of the Bruhat decomposition for $G_K$ is a tedious analogous to Theorem \ref{thm:bruhatsl2}.
+
+\begin{theorem}[Bruhat decomposition for $\sliii$] 
+    Let $G_K,B,N$ as above. Then 
+    $$G_K=BNB=B\sqcup Bn_{\alpha_1}B\sqcup Bn_{\alpha_2}B\sqcup Bn_{\alpha_1}n_{\alpha_2}B\sqcup Bn_{\alpha_2}n_{\alpha_1}B\sqcup Bn_{\alpha_1}n_{\alpha_2}n_{\alpha_1}B.$$  
+    The same is true if we replace $G_K,B,N$ for $G'_K,B',N'$.
+\end{theorem}
+
+
+
+
+\subsection{Affine bruhat decomposition of \texorpdfstring{$\slii$}{PDFstring}}
+
+We are now ready to discuss the last example of the talk. We start again with the simple complex Lie algebra $\slii(\CC)$ and we fix a field $K$ endowed with a discrete non-archimedean absolute value $|\cdot|$. Let $\mathfrak{O}=\{x\in K:|x|\leq 1\}$ be its ring of integers, $\pp=\varpi\mathfrak{O}=\{x\in K:|x|<1\}$ its unique maximal ideal with uniformizer $\varpi$ and $k=\mathfrak{O}/\pp$ its residue field.
+
+
+The aim of this final example is to exhibit subgroups of $G'_K\cong\PSL_2(K)$ satisfying analogous properties to the Borel subgroup $B'$ and the monoidal subgroup $N'$, in a way that we will make precise. In particular, this will lead us to \textit{affine Bruhat decompositions} of $G'_K$. We also remark that such decompositions also exist for $G_K$, but its treatment is more complicated. Therefore, we will content ourselves with studying $G'_K$, while the rest will be discussed in later talks. The idea is quite simple: from the natural reduction map $\mathcal{O}\xrightarrow[]{}\mathrel{\mkern-14mu}\rightarrow k$, we have natural surjective homomorphism $G'_{\mathfrak{O}}\xrightarrow[]{}\mathrel{\mkern-14mu}\rightarrow G'_k$ by reducing each matrix entry modulo $\pp$. This homomorphism is in fact the reduction modulo $\pp$ map $$\phi:\PSL_2(\mathfrak{O})\xrightarrow[]{}\mathrel{\mkern-14mu}\rightarrow\PSL_2(k).$$
+
+Let $B'_k$ be the Borel subgroup of $G'_k$ and let $$I'=\phi^{-1}(B'_k)=\begin{pmatrix}
+    \mathfrak{O}^* & \mathfrak{O}\\
+    \pp & \mathfrak{O}^*\\
+\end{pmatrix}\leq G'_\mathfrak{O}\leq G'_K$$
+be the \textit{Iwahori subgroup} of $G'_K$. Of course, from the Bruhat decomposition of $B'_k$, we have a decomposition 
+$$G'_\mathfrak{O}=I'\sqcup I'\begin{pmatrix}
+    0 & 1\\
+    -1 & 0\\
+\end{pmatrix}I'.$$
+The question is whether there is an explicit double cosset decomposition of $I'$ for $G'_K$. Firstly, we may note that under the natural topology induced by $|\cdot|$, the Iwahori subgroup is compact, while $G'_K$ is certainly not. Thus, the decomposition must have infinitely many double cossets.
+
+\begin{proposition}[Iwahori decomposition]
+    We have that
+    $$\PSL_2(K)=\bigcup_{a\in\ZZ^{\geq 0}}\PSL_2(\mathfrak{O})\begin{pmatrix}
+        \varpi^{-a} & 0\\
+        0 & \varpi^a \\
+    \end{pmatrix}\PSL_2(\mathfrak{O}),$$
+    and the union is disjoint.
+\end{proposition}
+\begin{proof}[Sketch]
+    One can diagonalize any matrix of $\PSL_2(K)$ by pre and post multiplication of matrices in $\PSL_2(\mathfrak{O})$, and we can also absorb units. This proves the union, and it is disjoint since the index 
+    $$\left[\PSL_2(\mathfrak{O})\begin{pmatrix}
+        \varpi^{-a} & 0\\
+        0 & \varpi^a \\
+    \end{pmatrix}\PSL_2(\mathfrak{O}):\PSL_2(\mathfrak{O})\right]$$
+    is distinct for each $a\in\ZZ^{\geq 0}$.
+\end{proof}
+
+Therefore, we have that
+$$\PSL_2(K)=\bigcup_{a\in\ZZ^{\geq0}}\left(I'\sqcup I'\begin{pmatrix}
+    0 & 1\\
+    -1 & 0\\
+\end{pmatrix}I'\right)\begin{pmatrix}
+    \varpi^{-a} & 0\\
+    0 & \varpi^a \\
+\end{pmatrix}\left(I'\sqcup I'\begin{pmatrix}
+    0 & 1\\
+    -1 & 0\\
+\end{pmatrix}I'\right).$$
+
+To simplify this expression, we need the following result, which can be proven by direct computation.
+
+\begin{lemma}
+    For each $a\in\ZZ^{\geq0}$, we have that
+    \begin{align*}
+        \left(I'\sqcup I'\begin{pmatrix}
+            0 & 1\\
+            -1 & 0\\
+        \end{pmatrix}I'\right)\begin{pmatrix}
+            \varpi^{-a} & 0\\
+            0 & \varpi^a \\
+        \end{pmatrix}\left(I'\sqcup I'\begin{pmatrix}
+            0 & 1\\
+            -1 & 0\\
+        \end{pmatrix}I'\right)=\\
+        =I'\begin{pmatrix}
+            \varpi^{-a} & 0\\
+            0 & \varpi^a\\
+        \end{pmatrix}I'\sqcup I'\begin{pmatrix}
+            0 & \varpi^a\\
+            -\varpi^{-a} & 0\\
+        \end{pmatrix}I'\sqcup I'\begin{pmatrix}
+            \varpi^{a} & 0\\
+            0 & \varpi^{-a}\\
+        \end{pmatrix}I'\sqcup I'\begin{pmatrix}
+            0 & \varpi^{-a}\\
+            -\varpi^a & 0\\
+        \end{pmatrix}I'.
+    \end{align*} 
+    
+\end{lemma}
+
+The key observation is the matrices $$\left\{\begin{pmatrix}
+    \varpi^{-a} & 0\\
+    0 & \varpi^a\\
+\end{pmatrix},\begin{pmatrix}
+    0 & \varpi^a\\
+    -\varpi^{-a} & 0\\
+\end{pmatrix}:a\in\ZZ\right\}$$
+form a multiplicative group isomorphic to the infinite dihedral group $D_\infty\cong\ZZ\rtimes\ZZ/2\ZZ$. Hence, with a slight abuse of notation, we have shown:
+
+\begin{theorem}[Affine Bruhat decompsition for $\slii(K)$]
+    We have that
+    $$G'_K=\bigcup_{w\in D_\infty}I'wI',$$
+    and the union is disjoint.
+\end{theorem}
+
+As a final remark, it is worth mentioning that all of the examples above can be explained by a more general framework. Both pairs of subgroups $(B',N')$ and $(I',N')$ of $G'_K$ are what is generally called a $(B,N)$ pair of $G'_K$, which will be abstractly described later during the study group. This general theory introduced by Tits is extremely powerful; in particular, any such pair $(B,N)$ of a group $G$ automatically gives a Bruhat-type decomposition of $G$ in terms of double cossets of $B$, and the representatives can be explicitly described inside $N$. The above theorems are just instances of this phenomenon. 
